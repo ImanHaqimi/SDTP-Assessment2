@@ -16,9 +16,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test") // Use a test profile if needed
-public class integrationtest {  // Removed underscore (Java convention)
+public class IntegrationTest {  // Removed underscore (Java convention)
 
-    private static final Logger logger = Logger.getLogger(integrationtest.class.getName());
+    private static final Logger logger = Logger.getLogger(IntegrationTest.class.getName());
 
     @Autowired
     private TestRestTemplate restTemplate;
