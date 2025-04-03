@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
 
-public class rating {
+public class Rating {
     private int id;
     private int memberID;
     private int photoID;
     private int ratingValue;
     private LocalDateTime ratingDate;
 
-    public rating (@JsonProperty("id") int id,
+    public Rating (@JsonProperty("id") int id,
                         @JsonProperty("memberID") int memberID,
                         @JsonProperty("photoID") int photoID,
                         @JsonProperty("ratingValue") int ratingValue,

@@ -1,11 +1,11 @@
 package com.photogallery;
 
-import com.photogallery.controller.controller;
-import com.photogallery.model.photo;
-import com.photogallery.service.highrating;
-import com.photogallery.service.photoartist;
-import com.photogallery.service.ratedday;
-import com.photogallery.service.ratingartist;
+import com.photogallery.controller.PhotoGalleryController;
+import com.photogallery.model.Photo;
+import com.photogallery.service.HighRatingService;
+import com.photogallery.service.PhotoArtistService;
+import com.photogallery.service.RatedDayService;
+import com.photogallery.service.RatingArtistService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,25 +26,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controller.class)
-class unittest {
+@WebMvcTest(PhotoGalleryController.class)
+class PhotoGalleryTest {
 
-    private static final Logger logger = Logger.getLogger(unittest.class.getName());
+    private static final Logger logger = Logger.getLogger(PhotoGalleryTest.class.getName());
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private highrating highRatedPhotosService;
+    private HighRatingService highRatedPhotosService;
 
     @MockBean
-    private ratingartist averageArtistRatingService;
+    private RatingArtistService averageArtistRatingService;
 
     @MockBean
-    private ratedday mostRatedDayService;
+    private RatedDayService mostRatedDayService;
 
     @MockBean
-    private photoartist photoByArtistService;
+    private PhotoArtistService photoByArtistService;
 
     @BeforeEach
     void setup() {
@@ -58,9 +58,9 @@ class unittest {
     void getPhotosByArtist_ShouldReturnList() throws Exception {
         logger.info("Running test: PhotosByArtist");
 
-        List<photo> mockPhotos = Arrays.asList(
-                new photo(1, "Forest Trail", "2024-03-20T08:00:00", "Forest", "Morning walk in forest", "forest.jpg", 201),
-                new photo(2, "Desert Dunes", "2024-03-21T16:45:00", "Desert", "Golden dunes view", "desert.jpg", 201)
+        List<Photo> mockPhotos = Arrays.asList(
+                new Photo(1, "Forest Trail", "2024-03-20T08:00:00", "Forest", "Morning walk in forest", "forest.jpg", 201),
+                new Photo(2, "Desert Dunes", "2024-03-21T16:45:00", "Desert", "Golden dunes view", "desert.jpg", 201)
         );
 
         when(photoByArtistService.getPhotosByArtist(201)).thenReturn(mockPhotos);
@@ -79,9 +79,9 @@ class unittest {
     void getHighlyRatedPhotos_ShouldReturnList() throws Exception {
         logger.info("Running test: HighlyRatedPhotos");
 
-        List<photo> mockPhotos = Arrays.asList(
-                new photo(3, "Waterfall", "2024-03-22T14:00:00", "Jungle", "Hidden waterfall spot", "waterfall.jpg", 202),
-                new photo(4, "Aurora", "2024-03-23T22:30:00", "Iceland", "Northern lights magic", "aurora.jpg", 203)
+        List<Photo> mockPhotos = Arrays.asList(
+                new Photo(3, "Waterfall", "2024-03-22T14:00:00", "Jungle", "Hidden waterfall spot", "waterfall.jpg", 202),
+                new Photo(4, "Aurora", "2024-03-23T22:30:00", "Iceland", "Northern lights magic", "aurora.jpg", 203)
         );
 
         when(highRatedPhotosService.getHighRatedPhotos()).thenReturn(mockPhotos);

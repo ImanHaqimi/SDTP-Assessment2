@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
 
-public class photo {
+public class Photo {
     private int id;
     private String title;
     private LocalDateTime dateTaken;
@@ -13,13 +13,13 @@ public class photo {
     private String fileName;
     private int memberID;
 
-    public photo( @JsonProperty("id") int id,
-                        @JsonProperty("title") String title,
-                        @JsonProperty("dateTaken") String dateTaken,
-                        @JsonProperty("location") String location,
-                        @JsonProperty("description") String description,
-                        @JsonProperty("fileName") String fileName,
-                        @JsonProperty("memberID") int memberID) {
+    public Photo(@JsonProperty("id") int id,
+                 @JsonProperty("title") String title,
+                 @JsonProperty("dateTaken") String dateTaken,
+                 @JsonProperty("location") String location,
+                 @JsonProperty("description") String description,
+                 @JsonProperty("fileName") String fileName,
+                 @JsonProperty("memberID") int memberID) {
         this.id = id;
         this.title = title;
         this.dateTaken = LocalDateTime.parse(dateTaken.substring(0, 19));

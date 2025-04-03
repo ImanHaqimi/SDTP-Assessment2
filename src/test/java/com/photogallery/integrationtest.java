@@ -1,6 +1,6 @@
 package com.photogallery;  // Ensure package follows Java naming conventions
 
-import com.photogallery.model.photo;  // Changed to lowercase as requested
+import com.photogallery.model.Photo;  // Changed to lowercase as requested
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class integrationtest {  // Removed underscore (Java convention)
         logger.info("Running test: GetPhotosByArtist");
 
         int artistId = 1;  // Fixed incorrect integer formatting
-        ResponseEntity<photo[]> response = restTemplate.getForEntity("/api/artist/" + artistId, photo[].class);
+        ResponseEntity<Photo[]> response = restTemplate.getForEntity("/api/artist/" + artistId, Photo[].class);
 
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
         assertThat(response.getBody()).isNotNull();
@@ -50,7 +50,7 @@ public class integrationtest {  // Removed underscore (Java convention)
     void testGetHighlyRatedPhotos() {
         logger.info("Running test: GetHighlyRatedPhotos");
 
-        ResponseEntity<photo[]> response = restTemplate.getForEntity("/api/highrated", photo[].class);
+        ResponseEntity<Photo[]> response = restTemplate.getForEntity("/api/highrated", Photo[].class);
 
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
         assertThat(response.getBody()).isNotNull();
