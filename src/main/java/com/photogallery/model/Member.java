@@ -2,13 +2,13 @@ package com.photogallery.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class member {
+public class Member {
     int id;
     String surname;
     String forenames;
     String email;
 
-    public member(
+    public Member(
             @JsonProperty("id") int id,
             @JsonProperty("surname") String surname,
             @JsonProperty("forenames") String forenames,
@@ -51,3 +51,4 @@ public class member {
         this.email = email;
     }
 }
+
