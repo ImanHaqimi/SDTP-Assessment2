@@ -33,24 +33,28 @@ public class PhotoGalleryController {
         this.photoArtistService = photoArtistService;
     }
 
+    //F1
     @GetMapping("/artist/{artistId}")
     public List<Photo> getPhotosByArtist(@PathVariable int artistId) {
         logger.info("Fetching photos for artist ID: {}", artistId);
         return photoArtistService.getPhotosByArtist(artistId);
     }
 
+    //F2
     @GetMapping("/highrated")
     public List<Photo> getHighlyRatedPhotos() {
         logger.info("Fetching photos rated above 4 stars.");
         return highRatingService.getHighRatedPhotos();
     }
 
+    //F3
     @GetMapping("/day")
     public DayOfWeek getMostCommonRatingDay() {
         logger.info("Fetching the most common rating day.");
         return ratedDayService.getMostRatedDay();
     }
 
+    //F4
     @GetMapping("/average/{artistId}")
     public double getAverageRatingByArtist(@PathVariable int artistId) {
         logger.info("Fetching average rating for artist ID: {}", artistId);

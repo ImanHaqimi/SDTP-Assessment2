@@ -254,6 +254,7 @@ public class Application {
         } catch (Exception ex) {
             System.out.println("Error fetching members: " + ex.getMessage());
         }
+        
         return List.of();
     }
 
